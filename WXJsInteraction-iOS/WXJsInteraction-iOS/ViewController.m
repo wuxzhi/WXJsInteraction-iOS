@@ -89,8 +89,9 @@
 - (void)addView {
     JSContext *jsCtx = [JSContext currentContext];
     //获取关联对象
-    JSValue *objectValue = jsCtx[@"object"];
+    JSValue *objectValue = [JSContext currentThis];
     __weak ViewController *weakSelf = objectValue.toObject;
+    
     //获取textarea
     JSValue *textValue = jsCtx[@"heightInput"];
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -111,8 +112,7 @@
 
 /** 2.改变size ps:JSExport方法名替换*/
 - (void)viewSizeChangeWithWidth:(float)width height:(float)height {
-    JSContext *jsCtx = [JSContext currentContext];
-    JSValue *objectValue = jsCtx[@"object"];
+    JSValue *objectValue = [JSContext currentThis];
     __weak ViewController *weakSelf = objectValue.toObject;
     dispatch_async(dispatch_get_main_queue(), ^{
         CGRect newFrame = weakSelf.colorView.frame;
@@ -125,8 +125,8 @@
 //插入jsCode,在html关联js文件不用调用
 //- (void)insertOCCallJSCode {
 //    NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"js"];
-//    NSString *jsScript = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-//    [self.jsContext evaluateScript:jsScript];
+//    NSString *jsStr = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+//    [self.jsContext evaluateScript:jsStr];
 //}
 
 //计算周长
