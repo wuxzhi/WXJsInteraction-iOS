@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>title</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    </head>
+    <script type="text/javascript" src="test.js"></script>
+    <script type="text/javascript">
+        function colorChange() {
+            viewColorChange("00ff00");
+        }
+    </script>
+    <body>
+        <!--JS调用OC，JSExport的关联方法要在ViewController.h文件中添加协议-->
+        <br/>
+        <!--调用oc方法1，通过JSExport协议关联对象直接调用对象方法-->
+        <input type="button" value="添加view" onclick="object.addView()" />
+        <!--调用oc方法2，直接调用方法-->
+        <input type="button" value="移除view" onclick="removeView()" />
+        <br/>
+        宽
+        <textarea  id="widthInput" style="font-size:10pt;color:black;" onkeyup="this.value=this.value.replace(/[^\d]/g,'') "></textarea>
+        <br/>
+        高
+        <textarea  id="heightInput" style="font-size:10pt;color:black;" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " ></textarea>
+        <br/>
+        <!--调用oc方法3，通过JSExport协议关联对象直接调用对象方法（传参）-->
+        <input type="button" value="size改变" onclick="object.viewSizeChange(widthInput.value,heightInput.value)" />
+        <br/>
+        <!--调用oc方法4，直接调用方法（传参）ps：我直接写入js方法中，可以直接调用，同上方法2-->
+        <input type="button" value="变颜色" onclick="colorChange()" />
+        <br/>
+    </body>
+</html>
