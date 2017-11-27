@@ -6,7 +6,14 @@
     <script type="text/javascript" src="test.js"></script>
     <script type="text/javascript">
         function colorChange() {
-            viewColorChange("00ff00");
+            var colorArr = ["00ff00",
+                            "ff00ff",
+                            "ff0000",
+                            "00ffff",
+                            "ffff00",
+                            "0000ff"];
+            var colorIndex = Math.floor((Math.random()*colorArr.length));
+            viewColorChange(colorArr[colorIndex]);
         }
     </script>
     <body>
