@@ -101,8 +101,7 @@
         }
         weakSelf.colorView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 100, 100)];
         weakSelf.colorView.backgroundColor = [UIColor redColor];
-        [weakSelf.view addSubview:weakSelf.colorView];
-        [weakSelf.view bringSubviewToFront:weakSelf.webView];
+        [weakSelf.view insertSubview:weakSelf.colorView atIndex:0];
         //输入框的text改变（ps:属oc改变js属性）
         [jsCtx evaluateScript:@"widthInput.value=100"];
         //输入框的text改变2（ps:属oc改变js属性）
