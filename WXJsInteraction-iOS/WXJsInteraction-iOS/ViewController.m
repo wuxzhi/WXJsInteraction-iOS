@@ -7,8 +7,9 @@
 //
 
 #import "ViewController.h"
-
-@interface ViewController () <UIWebViewDelegate>
+#import <JavaScriptCore/JavaScriptCore.h>
+#import "TestJSExportManage.h"
+@interface ViewController () <UIWebViewDelegate,TestJSExportDelegate>
 @property (nonatomic, strong) UIWebView *webView;
 /** 上下文(环境) */
 @property (nonatomic, strong) JSContext *jsContext;
@@ -24,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [TestJSExportManage sharedManager].delegate = self;
     _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-200)];
     _webView.backgroundColor = [UIColor clearColor];
     [_webView setOpaque:NO]; 
@@ -44,12 +45,11 @@
         context.exception = exception;
         NSLog(@"%@", exception);
     };
-    
-    __weak typeof(self) weakSelf = self;
-    //将self和js中'object'关联在一起,通过JSExport协议调用
-    _jsContext[@"object"] = weakSelf;
+    //将TestJSExportManage和js中'object'关联在一起,通过JSExport协议调用 ps:新建代理回调防止循环引用形成内存泄漏
+    _jsContext[@"object"] = [TestJSExportManage sharedManager];
     /*--------js调oc方法，js方直接调用，block等同于function*/
     //移除view
+    __weak typeof(self) weakSelf = self;
     _jsContext[@"removeView"] = ^(){
         JSContext *jsCtx = [JSContext currentContext];
         dispatch_async(dispatch_get_main_queue(), ^{

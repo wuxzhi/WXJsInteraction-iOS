@@ -7,14 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <JavaScriptCore/JavaScriptCore.h>
-
-@protocol testJSExport <JSExport>
-JSExportAs(viewSizeChange, - (void)viewSizeChangeWithWidth:(float)width height:(float)height);
-- (void)addView;
-@end
-
-@interface ViewController : UIViewController<testJSExport>
+@interface ViewController : UIViewController
 
 
 @end

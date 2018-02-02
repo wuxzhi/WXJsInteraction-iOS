@@ -16,6 +16,7 @@
 		23B977F81FC7D3FB0085805D /* WXJsInteraction_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B977F71FC7D3FB0085805D /* WXJsInteraction_iOSTests.m */; };
 		23B978091FC80D120085805D /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 23B978071FC80D120085805D /* test.html */; };
 		23B9780A1FC80D120085805D /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = 23B978081FC80D120085805D /* test.js */; };
+		23F7330A2024076F00D14A59 /* TestJSExportManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F733092024076F00D14A59 /* TestJSExportManage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		23B978051FC7FC570085805D /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		23B978071FC80D120085805D /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
 		23B978081FC80D120085805D /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
+		23F733082024076F00D14A59 /* TestJSExportManage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestJSExportManage.h; sourceTree = "<group>"; };
+		23F733092024076F00D14A59 /* TestJSExportManage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestJSExportManage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 				23B977DF1FC7D3FB0085805D /* AppDelegate.m */,
 				23B977E11FC7D3FB0085805D /* ViewController.h */,
 				23B977E21FC7D3FB0085805D /* ViewController.m */,
+				23F733082024076F00D14A59 /* TestJSExportManage.h */,
+				23F733092024076F00D14A59 /* TestJSExportManage.m */,
 				23B977E41FC7D3FB0085805D /* Main.storyboard */,
 				23B977E71FC7D3FB0085805D /* Assets.xcassets */,
 				23B977E91FC7D3FB0085805D /* LaunchScreen.storyboard */,
@@ -234,6 +239,7 @@
 				23B977E31FC7D3FB0085805D /* ViewController.m in Sources */,
 				23B977EE1FC7D3FB0085805D /* main.m in Sources */,
 				23B977E01FC7D3FB0085805D /* AppDelegate.m in Sources */,
+				23F7330A2024076F00D14A59 /* TestJSExportManage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
