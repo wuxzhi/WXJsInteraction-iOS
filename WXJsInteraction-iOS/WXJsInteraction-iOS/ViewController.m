@@ -89,19 +89,19 @@
 - (void)addView {
     JSContext *jsCtx = [JSContext currentContext];
     //获取关联对象
-    JSValue *objectValue = [JSContext currentThis];
-    __weak ViewController *weakSelf = objectValue.toObject;
+//    JSValue *objectValue = [JSContext currentThis];
+//    __weak ViewController *weakSelf = objectValue.toObject;
     
     //获取textarea
     JSValue *textValue = jsCtx[@"heightInput"];
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (weakSelf.colorView) {
-            [weakSelf.colorView removeFromSuperview];
-            weakSelf.colorView = nil;
+        if (self.colorView) {
+            [self.colorView removeFromSuperview];
+            self.colorView = nil;
         }
-        weakSelf.colorView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 100, 100)];
-        weakSelf.colorView.backgroundColor = [UIColor redColor];
-        [weakSelf.view insertSubview:weakSelf.colorView atIndex:0];
+        self.colorView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 100, 100)];
+        self.colorView.backgroundColor = [UIColor redColor];
+        [self.view insertSubview:self.colorView atIndex:0];
         //输入框的text改变（ps:属oc改变js属性）
         [jsCtx evaluateScript:@"widthInput.value=100"];
         //输入框的text改变2（ps:属oc改变js属性）
@@ -111,12 +111,12 @@
 
 /** 2.改变size ps:JSExport方法名替换*/
 - (void)viewSizeChangeWithWidth:(float)width height:(float)height {
-    JSValue *objectValue = [JSContext currentThis];
-    __weak ViewController *weakSelf = objectValue.toObject;
+//    JSValue *objectValue = [JSContext currentThis];
+//    __weak ViewController *weakSelf = objectValue.toObject;
     dispatch_async(dispatch_get_main_queue(), ^{
-        CGRect newFrame = weakSelf.colorView.frame;
+        CGRect newFrame = self.colorView.frame;
         newFrame.size = CGSizeMake(width, height);
-        weakSelf.colorView.frame = newFrame;
+        self.colorView.frame = newFrame;
     });
 }
 
